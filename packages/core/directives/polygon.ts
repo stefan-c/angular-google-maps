@@ -255,6 +255,14 @@ export class AgmPolygon implements OnDestroy, OnChanges, AfterContentInit {
   /** @internal */
   id(): string { return this._id; }
 
+  getPath(): Promise<LatLngLiteral[]> {
+    return this._polygonManager.getPath(this);
+  }
+
+  getPaths(): Promise<LatLngLiteral[][]> {
+    return this._polygonManager.getPaths(this);
+  }
+
   /** @internal */
   ngOnDestroy() {
     this._polygonManager.deletePolygon(this);
